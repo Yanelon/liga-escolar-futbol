@@ -30,17 +30,28 @@ SECRET_KEY = os.environ.get(
 # SECURITY WARNING: don't run with debug turned on in production!
 
 #DEBUG = True
-DEBUG = os.environ.get("DEBUG", "True").lower() == "true"
+#DEBUG = os.environ.get("DEBUG", "True").lower() == "true"
+#DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+DEBUG = os.environ.get("RENDER") is None
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost",]
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get(
     "RENDER_EXTERNAL_HOSTNAME"
 )
 
+CSRF_TRUSTED_ORIGINS = []
+
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
+    CSRF_TRUSTED_ORIGINS.append(
+        f"https://{RENDER_EXTERNAL_HOSTNAME}"
+    )
+    
 # Application definition
 
 INSTALLED_APPS = [
