@@ -1,0 +1,360 @@
+/* ==========================
+   CONFIGURACIÓN GENERAL
+========================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 0;
+    margin: 0;
+
+    overflow-x: hidden;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: white;
+    background: #111827;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* ==========================
+        HEADER
+========================== */
+
+.header {
+    position: relative;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    width: 100%;
+    padding: 20px 40px;
+
+    background: #0f172a;
+    border-bottom: 3px solid #16a34a;
+}
+
+
+/* ==========================
+      LOGO Y TÍTULO
+========================== */
+
+.logo-container {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+
+    gap: 20px;
+
+    color: inherit;
+    text-decoration: none;
+}
+
+.logo {
+    flex-shrink: 0;
+
+    width: 110px;
+    height: 110px;
+
+    object-fit: contain;
+}
+
+.logo-container h1 {
+    margin: 0;
+
+    color: white;
+
+    font-size: 28px;
+    line-height: 1.2;
+}
+
+
+/* ==========================
+        MENÚ
+========================== */
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+
+    gap: 25px;
+}
+
+.menu a {
+    position: relative;
+
+    padding: 8px 0;
+
+    color: white;
+
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.menu a:hover {
+    color: #facc15;
+    transform: translateY(-2px);
+}
+
+.menu a.activo {
+    color: #facc15;
+}
+
+.menu a.activo::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 2px;
+
+    background: #22c55e;
+    border-radius: 999px;
+}
+
+
+/* ==========================
+    BOTÓN HAMBURGUESA
+========================== */
+
+.menu-boton {
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 48px;
+    height: 48px;
+    padding: 0;
+
+    color: white;
+    background: transparent;
+
+    border: 2px solid #16a34a;
+    border-radius: 8px;
+
+    font-size: 26px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.menu-boton:hover {
+    color: #facc15;
+    border-color: #facc15;
+}
+
+
+/* ==========================
+       ACCESIBILIDAD
+========================== */
+
+.menu-boton:focus-visible,
+.menu a:focus-visible,
+.logo-container:focus-visible {
+    outline: 3px solid #facc15;
+    outline-offset: 4px;
+}
+
+
+/* ==========================
+        CONTENIDO
+========================== */
+
+.contenido {
+    width: 100%;
+    min-height: 70vh;
+}
+
+
+/* ==========================
+        FOOTER
+========================== */
+
+.footer {
+    padding: 20px;
+
+    color: #cbd5e1;
+    background: #0f172a;
+
+    border-top: 3px solid #16a34a;
+
+    text-align: center;
+}
+
+.footer p {
+    margin: 5px;
+}
+
+
+/* ==========================
+       TABLET Y CELULAR
+========================== */
+
+@media screen and (max-width: 900px) {
+
+    .header {
+        gap: 10px;
+        padding: 12px 16px;
+    }
+
+    .logo-container {
+        flex: 1;
+
+        gap: 10px;
+    }
+
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .logo-container h1 {
+        font-size: 18px;
+        line-height: 1.15;
+    }
+
+    .menu-boton {
+        display: flex;
+    }
+
+    .menu {
+        display: none;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        z-index: 1001;
+
+        width: 100%;
+        padding: 8px 16px 16px;
+
+        background: #0f172a;
+
+        border-bottom: 3px solid #16a34a;
+    }
+
+    .menu.menu-activo {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0;
+    }
+
+    .menu a {
+        display: block;
+
+        width: 100%;
+        padding: 14px 10px;
+
+        font-size: 17px;
+
+        border-bottom: 1px solid #334155;
+
+        transform: none;
+    }
+
+    .menu a:hover {
+        transform: none;
+    }
+
+    .menu a:last-child {
+        border-bottom: none;
+    }
+
+    .menu a.activo {
+        padding-left: 14px;
+
+        border-left: 4px solid #22c55e;
+    }
+
+    .menu a.activo::after {
+        display: none;
+    }
+
+}
+
+
+/* ==========================
+     CELULARES PEQUEÑOS
+========================== */
+
+@media screen and (max-width: 430px) {
+
+    .header {
+        padding: 10px 12px;
+    }
+
+    .logo {
+        width: 52px;
+        height: 52px;
+    }
+
+    .logo-container h1 {
+        font-size: 15px;
+    }
+
+    .menu-boton {
+        width: 42px;
+        height: 42px;
+
+        font-size: 23px;
+    }
+
+    .footer {
+        padding: 18px 12px;
+    }
+
+    .footer p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+}

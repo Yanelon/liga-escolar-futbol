@@ -1,0 +1,249 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {% block title %}
+            Liga Escolar de Fútbol
+        {% endblock %}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/base.css' %}"
+    >
+
+    {% block css %}
+    {% endblock %}
+
+</head>
+
+<body>
+
+    <header class="header">
+
+        <a
+            href="{% url 'inicio' %}"
+            class="logo-container"
+        >
+
+            <img
+                src="{% static 'img/logo.png' %}"
+                alt="Logo Liga Escolar de Fútbol"
+                class="logo"
+            >
+
+            <h1>
+                Liga Escolar de Fútbol
+            </h1>
+
+        </a>
+
+        <button
+            class="menu-boton"
+            id="menuBoton"
+            type="button"
+            aria-label="Abrir menú de navegación"
+            aria-expanded="false"
+            aria-controls="menuPrincipal"
+        >
+            ☰
+        </button>
+
+        <nav
+            class="menu"
+            id="menuPrincipal"
+        >
+
+            <a
+                href="{% url 'inicio' %}"
+                class="
+                    {% if request.resolver_match.url_name == 'inicio' %}
+                        activo
+                    {% endif %}
+                "
+            >
+                Inicio
+            </a>
+
+            <a
+                href="{% url 'jornadas' %}"
+                class="
+                    {% if request.resolver_match.url_name == 'jornadas' %}
+                        activo
+                    {% endif %}
+                "
+            >
+                Jornadas
+            </a>
+
+            <a
+                href="{% url 'equipos:lista' %}"
+                class="
+                    {% if request.resolver_match.namespace == 'equipos' %}
+                        activo
+                    {% endif %}
+                "
+            >
+                Equipos
+            </a>
+
+            <a
+                href="{% url 'inicio_estadisticas' %}"
+                class="
+                    {% if request.resolver_match.url_name == 'inicio_estadisticas' %}
+                        activo
+                    {% endif %}
+                "
+            >
+                Estadísticas
+            </a>
+
+            <a
+                href="{% url 'comentarios:lista' %}"
+                class="
+                    {% if request.resolver_match.namespace == 'comentarios' %}
+                        activo
+                    {% endif %}
+                "
+            >
+                Comentarios
+            </a>
+
+        </nav>
+
+    </header>
+
+    <main class="contenido">
+
+        {% block contenido %}
+        {% endblock %}
+
+    </main>
+
+    <footer class="footer">
+
+        <p>
+            ⚽ Liga Escolar de Fútbol © 2026
+        </p>
+
+        <p>
+            Pasión, disciplina y trabajo en equipo
+        </p>
+
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const menuBoton =
+                document.getElementById("menuBoton");
+
+            const menuPrincipal =
+                document.getElementById("menuPrincipal");
+
+            if (!menuBoton || !menuPrincipal) {
+                return;
+            }
+
+            function cerrarMenu() {
+
+                menuPrincipal.classList.remove(
+                    "menu-activo"
+                );
+
+                menuBoton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuBoton.textContent = "☰";
+
+                menuBoton.setAttribute(
+                    "aria-label",
+                    "Abrir menú de navegación"
+                );
+
+            }
+
+            menuBoton.addEventListener(
+                "click",
+                function () {
+
+                    const menuAbierto =
+                        menuPrincipal.classList.toggle(
+                            "menu-activo"
+                        );
+
+                    menuBoton.setAttribute(
+                        "aria-expanded",
+                        menuAbierto ? "true" : "false"
+                    );
+
+                    menuBoton.textContent =
+                        menuAbierto ? "✕" : "☰";
+
+                    menuBoton.setAttribute(
+                        "aria-label",
+                        menuAbierto
+                            ? "Cerrar menú de navegación"
+                            : "Abrir menú de navegación"
+                    );
+
+                }
+            );
+
+            const enlacesMenu =
+                menuPrincipal.querySelectorAll("a");
+
+            enlacesMenu.forEach(function (enlace) {
+
+                enlace.addEventListener(
+                    "click",
+                    cerrarMenu
+                );
+
+            });
+
+            document.addEventListener(
+                "keydown",
+                function (evento) {
+
+                    if (evento.key === "Escape") {
+
+                        cerrarMenu();
+
+                        menuBoton.focus();
+
+                    }
+
+                }
+            );
+
+            window.addEventListener(
+                "resize",
+                function () {
+
+                    if (window.innerWidth > 900) {
+                        cerrarMenu();
+                    }
+
+                }
+            );
+
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block title %}
+Detalle del partido
+{% endblock %}
+
+
+{% block css %}
+<link
+    rel="stylesheet"
+    href="{% static 'css/detallepartido.css' %}"
+>
+{% endblock %}
+
+
+{% block contenido %}
+
+<section class="seccion-detalle-partido">
+
+    <div class="contenedor-detalle-partido">
+
+        <a
+            href="{% url 'jornadas' %}"
+            class="boton-regresar"
+        >
+            ← Volver a jornadas
+        </a>
+
+
+        <div class="tarjeta-marcador">
+
+            <p class="titulo-marcador">
+                Marcador
+            </p>
+
+            <div class="marcador-principal">
+
+                <div class="equipo-marcador">
+
+                    {% if partido.equipo_local.escudo %}
+
+                        <img
+                            src="{{ partido.equipo_local.escudo.url }}"
+                            alt="Escudo de {{ partido.equipo_local.nombre }}"
+                            class="escudo-marcador"
+                        >
+
+                    {% else %}
+
+                        <img
+                            src="{% static 'img/escudo_default.png' %}"
+                            alt="Escudo por defecto"
+                            class="escudo-marcador escudo-default"
+                        >
+
+                    {% endif %}
+
+                    <h2>
+                        {{ partido.equipo_local.nombre }}
+                    </h2>
+
+                </div>
+
+
+                <div class="resultado-marcador">
+
+                    {% if partido.terminado %}
+
+                        <span>
+                            {{ partido.goles_local }}
+                            -
+                            {{ partido.goles_visitante }}
+                        </span>
+
+                        <small>
+                            Finalizado
+                        </small>
+
+                    {% else %}
+
+                        <span>
+                            VS
+                        </span>
+
+                        <small>
+                            Partido pendiente
+                        </small>
+
+                    {% endif %}
+
+                </div>
+
+
+                <div class="equipo-marcador">
+
+                    {% if partido.equipo_visitante.escudo %}
+
+                        <img
+                            src="{{ partido.equipo_visitante.escudo.url }}"
+                            alt="Escudo de {{ partido.equipo_visitante.nombre }}"
+                            class="escudo-marcador"
+                        >
+
+                    {% else %}
+
+                        <img
+                            src="{% static 'img/escudo_default.png' %}"
+                            alt="Escudo por defecto"
+                            class="escudo-marcador escudo-default"
+                        >
+
+                    {% endif %}
+
+                    <h2>
+                        {{ partido.equipo_visitante.nombre }}
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="contenedor-incidencias">
+
+            <div class="tarjeta-incidencias">
+
+                <h2>
+                    ⚽ Goles
+                </h2>
+
+                <div class="lista-incidencias">
+
+                    {% for gol in goles %}
+
+                        <div class="incidencia">
+
+                            <div>
+                                <strong>
+                                    {{ gol.jugador }}
+                                </strong>
+
+                                <span>
+                                    {{ gol.jugador.equipo.nombre }}
+                                </span>
+                            </div>
+
+                            {% if gol.minuto %}
+
+                                <span class="minuto-gol">
+                                    {{ gol.minuto }}'
+                                </span>
+
+                            {% endif %}
+
+                        </div>
+
+                    {% empty %}
+
+                        <p class="mensaje-vacio">
+                            No hay goles registrados para este partido.
+                        </p>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+
+            <div class="tarjeta-incidencias">
+
+                <h2>
+                    🟨 Tarjetas
+                </h2>
+
+                <div class="lista-incidencias">
+
+                    {% for tarjeta in tarjetas %}
+
+                        <div class="incidencia">
+
+                            <div>
+                                <strong>
+                                    {{ tarjeta.jugador }}
+                                </strong>
+
+                                <span>
+                                    {{ tarjeta.jugador.equipo.nombre }}
+                                </span>
+                            </div>
+
+
+                            {% if tarjeta.tipo == "AMARILLA" %}
+
+                                <span class="tarjeta amarilla">
+                                    Amarilla
+                                </span>
+
+                            {% else %}
+
+                                <span class="tarjeta roja">
+                                    Roja
+                                </span>
+
+                            {% endif %}
+
+                        </div>
+
+                    {% empty %}
+
+                        <p class="mensaje-vacio">
+                            No hay tarjetas registradas para este partido.
+                        </p>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

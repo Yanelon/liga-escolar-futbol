@@ -1,0 +1,398 @@
+.seccion-detalle-partido {
+    min-height: 80vh;
+    padding: 60px 25px;
+
+    background:
+        linear-gradient(
+            rgba(3, 10, 7, 0.96),
+            rgba(3, 10, 7, 0.99)
+        );
+}
+
+.contenedor-detalle-partido {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+
+/* BOTÓN REGRESAR */
+
+.boton-regresar {
+    display: inline-block;
+
+    margin-bottom: 25px;
+
+    color: #22c55e;
+    font-weight: bold;
+    text-decoration: none;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.boton-regresar:hover {
+    color: #facc15;
+    transform: translateX(-3px);
+}
+
+
+/* MARCADOR */
+
+.tarjeta-marcador {
+    width: 100%;
+    padding: 35px;
+
+    background: #111827;
+
+    border: 1px solid #334155;
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.35);
+}
+
+.titulo-marcador {
+    margin: 0 0 30px;
+
+    color: #facc15;
+    font-size: 15px;
+    font-weight: bold;
+
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.marcador-principal {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        auto
+        minmax(0, 1fr);
+
+    align-items: center;
+    gap: 30px;
+}
+
+
+/* EQUIPOS */
+
+.equipo-marcador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 0;
+
+    text-align: center;
+}
+
+.escudo-default {
+    opacity: 0.75;
+}
+
+.equipo-marcador h2 {
+    margin: 15px 0 0;
+
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 1.25;
+
+    overflow-wrap: anywhere;
+}
+
+.escudo-marcador {
+    width: 100px;
+    height: 100px;
+
+    object-fit: contain;
+}
+
+
+/* RESULTADO */
+
+.resultado-marcador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.resultado-marcador span {
+    color: #ffffff;
+
+    font-size: 55px;
+    font-weight: bold;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.resultado-marcador small {
+    margin-top: 12px;
+    padding: 6px 14px;
+
+    color: #22c55e;
+    font-size: 12px;
+    font-weight: bold;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    background: rgba(34, 197, 94, 0.12);
+
+    border-radius: 30px;
+}
+
+
+/* INCIDENCIAS */
+
+.contenedor-incidencias {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 25px;
+
+    margin-top: 30px;
+}
+
+.tarjeta-incidencias {
+    min-width: 0;
+    padding: 25px;
+
+    background: #111827;
+
+    border: 1px solid #334155;
+    border-radius: 18px;
+}
+
+.tarjeta-incidencias h2 {
+    margin: 0 0 20px;
+
+    color: #facc15;
+    font-size: 23px;
+}
+
+.lista-incidencias {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.incidencia {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 14px 16px;
+
+    background: #0f172a;
+
+    border-left: 4px solid #22c55e;
+    border-radius: 10px;
+}
+
+.incidencia > div {
+    min-width: 0;
+}
+
+.incidencia strong {
+    display: block;
+
+    color: #ffffff;
+
+    overflow-wrap: anywhere;
+}
+
+.incidencia div span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #94a3b8;
+    font-size: 14px;
+
+    overflow-wrap: anywhere;
+}
+
+.minuto-gol {
+    flex-shrink: 0;
+
+    color: #22c55e;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* TARJETAS */
+
+.tarjeta {
+    flex-shrink: 0;
+
+    padding: 6px 12px;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    border-radius: 7px;
+}
+
+.tarjeta.amarilla {
+    color: #111827;
+    background: #facc15;
+}
+
+.tarjeta.roja {
+    color: #ffffff;
+    background: #dc2626;
+}
+
+
+/* MENSAJE VACÍO */
+
+.mensaje-vacio {
+    margin: 0;
+    padding: 18px;
+
+    color: #94a3b8;
+    text-align: center;
+
+    background: #0f172a;
+
+    border-radius: 10px;
+}
+
+
+/* TABLET */
+
+@media screen and (max-width: 750px) {
+
+    .seccion-detalle-partido {
+        padding: 40px 18px;
+    }
+
+    .tarjeta-marcador {
+        padding: 28px 20px;
+    }
+
+    .marcador-principal {
+        grid-template-columns:
+            minmax(0, 1fr)
+            auto
+            minmax(0, 1fr);
+
+        gap: 15px;
+    }
+
+    .escudo-marcador {
+        width: 80px;
+        height: 80px;
+    }
+
+    .equipo-marcador h2 {
+        font-size: 20px;
+    }
+
+    .resultado-marcador span {
+        font-size: 44px;
+    }
+
+    .contenedor-incidencias {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* CELULAR */
+
+@media screen and (max-width: 520px) {
+
+    .seccion-detalle-partido {
+        padding: 28px 10px;
+    }
+
+    .tarjeta-marcador {
+        padding: 22px 10px;
+        border-radius: 15px;
+    }
+
+    .titulo-marcador {
+        margin-bottom: 22px;
+        font-size: 13px;
+    }
+
+    .marcador-principal {
+        display: grid;
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            auto
+            minmax(0, 1fr);
+
+        align-items: center;
+        gap: 8px;
+    }
+
+    .equipo-marcador {
+        min-width: 0;
+        text-align: center;
+    }
+
+    .escudo-marcador {
+        width: 65px;
+        height: 65px;
+    }
+
+    .equipo-marcador h2 {
+        margin-top: 10px;
+
+        font-size: 15px;
+        line-height: 1.2;
+
+        overflow-wrap: anywhere;
+    }
+
+    .resultado-marcador {
+        order: initial;
+        padding: 0;
+
+        border: none;
+    }
+
+    .resultado-marcador span {
+        font-size: 35px;
+        white-space: nowrap;
+    }
+
+    .resultado-marcador small {
+        margin-top: 8px;
+        padding: 5px 8px;
+
+        font-size: 9px;
+        letter-spacing: 0;
+    }
+
+    .contenedor-incidencias {
+        grid-template-columns: 1fr;
+        margin-top: 20px;
+        gap: 18px;
+    }
+
+    .tarjeta-incidencias {
+        padding: 20px 14px;
+    }
+
+    .incidencia {
+        padding: 13px 12px;
+    }
+}

@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Tabla disciplinaria - Liga Escolar de Fútbol
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/estadisticass.css' %}">
+{% endblock %}
+
+{% block contenido %}
+
+<section class="seccion-disciplina">
+
+    <div class="encabezado-disciplina">
+
+        <h1>
+            🟨 Tabla disciplinaria 🟥
+        </h1>
+
+        <p>
+            Registro de tarjetas de la Liga Escolar de Fútbol
+        </p>
+
+    </div>
+
+    <div class="contenedor-tabla-disciplina">
+
+        <table class="tabla-disciplina">
+
+            <thead>
+                <tr>
+                    <th>Pos.</th>
+                    <th>Jugador</th>
+                    <th>Equipo</th>
+                    <th>Amarillas</th>
+                    <th>Rojas</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for jugador in tarjetas %}
+
+                    <tr>
+
+                        <td class="posicion-disciplina">
+                            {{ forloop.counter }}
+                        </td>
+
+                        <td class="jugador-disciplina">
+                            {{ jugador.jugador__nombre }}
+                        </td>
+
+                        <td class="equipo-disciplina">
+                            {{ jugador.jugador__equipo__nombre }}
+                        </td>
+
+                        <td class="tarjetas-amarillas">
+                            🟨 {{ jugador.amarillas }}
+                        </td>
+
+                        <td class="tarjetas-rojas">
+                            🟥 {{ jugador.rojas }}
+                        </td>
+
+                    </tr>
+
+                {% empty %}
+
+                    <tr>
+                        <td colspan="5" class="sin-tarjetas">
+                            Todavía no hay tarjetas registradas.
+                        </td>
+                    </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+{% endblock %}

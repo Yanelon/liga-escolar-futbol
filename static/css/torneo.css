@@ -1,0 +1,353 @@
+/* ==========================
+      TÍTULO DE PÁGINA
+========================== */
+
+.titulo-pagina {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.titulo-pagina h2 {
+    margin: 0 0 12px;
+    color: #facc15;
+    font-size: 40px;
+    line-height: 1.2;
+}
+
+.titulo-pagina p {
+    margin: 0;
+    color: #cbd5e1;
+    font-size: 18px;
+}
+
+
+/* ==========================
+        JORNADAS
+========================== */
+
+.jornada {
+    width: 100%;
+
+    margin-bottom: 40px;
+    padding: 30px;
+
+    background: #0f172a;
+
+    border-left: 5px solid #16a34a;
+    border-radius: 15px;
+}
+
+.encabezado-jornada {
+    margin-bottom: 25px;
+}
+
+.jornada h2 {
+    margin: 0 0 8px;
+    color: #22c55e;
+    font-size: 28px;
+}
+
+.jornada h3 {
+    margin: 0 0 10px;
+    color: white;
+    font-size: 22px;
+}
+
+.fecha-jornada {
+    margin: 0;
+    color: #cbd5e1;
+}
+
+
+/* ==========================
+        PARTIDOS
+========================== */
+
+.partidos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.partido-card {
+    width: 100%;
+    padding: 25px;
+
+    background: #111827;
+
+    border: 1px solid #16a34a;
+    border-radius: 12px;
+}
+
+
+/* ==========================
+        EQUIPOS
+========================== */
+
+.equipos {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+
+    align-items: center;
+    gap: 25px;
+
+    font-size: 22px;
+    text-align: center;
+}
+
+.nombre-equipo {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-weight: bold;
+}
+
+.versus {
+    color: #facc15;
+    font-size: 19px;
+}
+
+
+/* ==========================
+      DATOS DEL PARTIDO
+========================== */
+
+.datos-partido {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 15px 30px;
+
+    margin-top: 20px;
+    padding-top: 18px;
+
+    color: #cbd5e1;
+
+    border-top: 1px solid #334155;
+}
+
+.datos-partido p {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    margin: 0;
+}
+
+
+/* ==========================
+      ESTADO DEL PARTIDO
+========================== */
+
+.estado-partido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.finalizado,
+.pendiente {
+    margin: 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+.finalizado {
+    color: #22c55e;
+}
+
+.pendiente {
+    color: #facc15;
+}
+
+
+/* ==========================
+      BOTÓN DE DETALLES
+========================== */
+
+.boton-detalles-partido {
+    display: inline-block;
+
+    padding: 11px 24px;
+
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    background: #15803d;
+
+    border: 1px solid #22c55e;
+    border-radius: 10px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.boton-detalles-partido:hover {
+    color: #0b120d;
+    background: #facc15;
+    border-color: #facc15;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(250, 204, 21, 0.25);
+}
+
+
+/* ==========================
+       MENSAJES VACÍOS
+========================== */
+
+.mensaje-vacio {
+    margin: 0;
+    padding: 20px;
+
+    color: #cbd5e1;
+    text-align: center;
+
+    background: #111827;
+
+    border: 1px dashed #475569;
+    border-radius: 10px;
+}
+
+
+/* ==========================
+        TABLET
+========================== */
+
+@media screen and (max-width: 768px) {
+
+    .titulo-pagina {
+        margin-bottom: 28px;
+    }
+
+    .titulo-pagina h2 {
+        font-size: 32px;
+    }
+
+    .jornada {
+        margin-bottom: 28px;
+        padding: 22px;
+    }
+
+    .jornada h2 {
+        font-size: 24px;
+    }
+
+    .jornada h3 {
+        font-size: 20px;
+    }
+
+    .partido-card {
+        padding: 20px;
+    }
+
+    .equipos {
+        gap: 15px;
+        font-size: 19px;
+    }
+
+    .datos-partido {
+        gap: 12px 20px;
+    }
+
+}
+
+
+/* ==========================
+        CELULAR
+========================== */
+
+@media screen and (max-width: 520px) {
+
+    .titulo-pagina {
+        margin-bottom: 24px;
+    }
+
+    .titulo-pagina h2 {
+        font-size: 29px;
+    }
+
+    .titulo-pagina p {
+        font-size: 16px;
+    }
+
+    .jornada {
+        padding: 18px 14px;
+
+        border-left-width: 4px;
+        border-radius: 12px;
+    }
+
+    .encabezado-jornada {
+        margin-bottom: 20px;
+    }
+
+    .jornada h2 {
+        font-size: 22px;
+    }
+
+    .jornada h3 {
+        font-size: 18px;
+    }
+
+    .fecha-jornada {
+        font-size: 14px;
+    }
+
+    .partidos {
+        gap: 16px;
+    }
+
+    .partido-card {
+        padding: 18px 14px;
+    }
+
+    .equipos {
+        grid-template-columns: 1fr;
+        gap: 10px;
+
+        font-size: 18px;
+    }
+
+    .versus {
+        font-size: 16px;
+    }
+
+    .datos-partido {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 12px;
+
+        margin-top: 18px;
+        padding-top: 16px;
+    }
+
+    .datos-partido p {
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .estado-partido {
+        align-items: stretch;
+    }
+
+    .boton-detalles-partido {
+        width: 100%;
+        padding: 13px 16px;
+    }
+
+}

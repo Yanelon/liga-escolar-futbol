@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Tabla de goleadores - Liga Escolar de Fútbol
+{% endblock %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/estadisticass.css' %}">
+{% endblock %}
+
+
+{% block contenido %}
+
+<section class="seccion-goleadores">
+
+    <div class="encabezado-goleadores">
+
+        <h1>
+            ⚽ Tabla de goleadores
+        </h1>
+
+        <p>
+            Máximos anotadores de la Liga Escolar de Fútbol
+        </p>
+
+    </div>
+
+
+    <div class="contenedor-tabla-goleadores">
+
+        <table class="tabla-goleadores">
+
+            <thead>
+
+                <tr>
+                    <th>Pos.</th>
+                    <th>Jugador</th>
+                    <th>Equipo</th>
+                    <th>Goles</th>
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for goleador in goleadores %}
+
+                    <tr>
+
+                        <td class="posicion-goleador">
+
+                            {% if forloop.counter == 1 %}
+                                🥇
+                            {% elif forloop.counter == 2 %}
+                                🥈
+                            {% elif forloop.counter == 3 %}
+                                🥉
+                            {% else %}
+                                {{ forloop.counter }}
+                            {% endif %}
+
+                        </td>
+
+
+                        <td class="nombre-goleador">
+                            {{ goleador.jugador__nombre }}
+                        </td>
+
+
+                        <td class="equipo-goleador">
+                            {{ goleador.jugador__equipo__nombre }}
+                        </td>
+
+
+                        <td class="cantidad-goles">
+                            ⚽ {{ goleador.total_goles }}
+                        </td>
+
+                    </tr>
+
+                {% empty %}
+
+                    <tr>
+
+                        <td colspan="4" class="sin-goleadores">
+                            Todavía no hay goles registrados.
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Comentarios
+{% endblock %}
+
+{% block css %}
+<link
+    rel="stylesheet"
+    href="{% static 'css/comentarios.css' %}"
+>
+{% endblock %}
+
+{% block contenido %}
+
+<section class="seccion-comentarios">
+
+    <div class="encabezado-comentarios">
+        <h1>Comentarios de la liga</h1>
+
+        <p>
+            Comparte tu opinión sobre el torneo o sobre
+            el sitio.
+        </p>
+    </div>
+
+    {% if messages %}
+
+        <div class="mensajes-comentarios">
+
+            {% for message in messages %}
+
+                <p class="mensaje-exito">
+                    {{ message }}
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+    {% endif %}
+
+    <div class="contenedor-comentarios">
+
+        <div class="panel-formulario">
+
+            <h2>Deja un comentario</h2>
+
+            <form method="post">
+
+                {% csrf_token %}
+
+                <div class="campo-formulario">
+
+                    <label for="{{ formulario.nombre.id_for_label }}">
+                        Nombre, apodo o aka
+                    </label>
+
+                    {{ formulario.nombre }}
+
+                    {% for error in formulario.nombre.errors %}
+                        <small class="error-formulario">
+                            {{ error }}
+                        </small>
+                    {% endfor %}
+
+                </div>
+
+                <div class="campo-formulario">
+
+                    <label for="{{ formulario.comentario.id_for_label }}">
+                        Comentario
+                    </label>
+
+                    {{ formulario.comentario }}
+
+                    {% for error in formulario.comentario.errors %}
+                        <small class="error-formulario">
+                            {{ error }}
+                        </small>
+                    {% endfor %}
+
+                </div>
+
+                <button type="submit">
+                    Publicar comentario
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="lista-comentarios">
+
+            <div class="titulo-lista-comentarios">
+
+                <h2>Comentarios publicados</h2>
+
+                <span>
+                    {{ comentarios.count }}
+                </span>
+
+            </div>
+
+            {% for comentario in comentarios %}
+
+                <article class="tarjeta-comentario">
+
+                    <div class="avatar-comentario">
+                        {{ comentario.nombre|first|upper }}
+                    </div>
+
+                    <div class="contenido-comentario">
+
+                        <div class="datos-comentario">
+
+                            <h3>
+                                {{ comentario.nombre }}
+                            </h3>
+
+                            <time datetime="{{ comentario.fecha|date:'c' }}">
+                                {{ comentario.fecha|date:"d/m/Y H:i" }}
+                            </time>
+
+                        </div>
+
+                        <p>
+                            {{ comentario.comentario|linebreaksbr }}
+                        </p>
+
+                    </div>
+
+                </article>
+
+            {% empty %}
+
+                <div class="sin-comentarios">
+                    <p>
+                        Todavía no hay comentarios.
+                        Sé la primera persona en publicar uno.
+                    </p>
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

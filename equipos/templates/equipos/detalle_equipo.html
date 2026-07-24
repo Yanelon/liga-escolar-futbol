@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+{{ equipo.nombre }}
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/equipos.css' %}">
+{% endblock %}
+
+{% block contenido %}
+
+<section class="detalle-equipo">
+
+    <a href="{% url 'equipos:lista' %}">
+         ← Volver a equipos
+    </a>
+
+    <div class="encabezado-equipo">
+
+        {% if equipo.escudo %}
+            <img
+                src="{{ equipo.escudo.url }}"
+                alt="{{ equipo.nombre }}"
+                class="escudo-equipo"
+            >
+        {% else %}
+            <img
+                src="{% static 'img/escudo_default.png' %}"
+                alt="Escudo por defecto"
+                class="escudo-equipo"
+            >
+        {% endif %}
+
+        <h1>{{ equipo.nombre }}</h1>
+
+    </div>
+
+    <div class="lista-jugadores">
+
+        <h2>Jugadores</h2>
+
+        {% for jugador in jugadores %}
+
+            <a
+                href="{% url 'jugadores:detalle' jugador.id %}"
+                class="fila-jugador"
+            >
+
+                <div>
+                    <strong>
+                        {{ jugador.nombre }}
+                        {{ jugador.apellidos }}
+                    </strong>
+
+                    <span>
+                        Número {{ jugador.numero }}
+                    </span>
+                </div>
+
+                <span class="posicion-jugador">
+                    {% if jugador.posicion %}
+                        {{ jugador.posicion }}
+                    {% else %}
+                        Sin posición
+                    {% endif %}
+                </span>
+
+            </a>
+
+        {% empty %}
+
+            <p>Este equipo todavía no tiene jugadores.</p>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

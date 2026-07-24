@@ -1,0 +1,239 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block title %}
+
+Inicio - Liga Escolar de Fútbol
+
+{% endblock %}
+
+
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'css/homes.css' %}">
+
+{% endblock %}
+
+
+
+
+{% block contenido %}
+
+
+<section class="bienvenida">
+
+
+    <div class="hero">
+
+
+        <h2>
+            Bienvenidos a la
+            <span>
+                Liga Escolar de Fútbol
+            </span>
+        </h2>
+
+
+        <p>
+            Vive la emoción del fútbol escolar,
+            sigue los resultados, jornadas,
+            estadísticas y el desempeño de cada equipo.
+        </p>
+
+
+        <a href="{% url 'jornadas' %}" class="boton">
+            Ver jornadas
+        </a>
+
+
+    </div>
+
+
+
+</section>
+
+<section class="estadisticas-home">
+
+    <div class="card-home">
+
+        <h2>{{ total_equipos }}</h2>
+
+        <p>Equipos</p>
+
+    </div>
+
+    <div class="card-home">
+
+        <h2>{{ total_jugadores }}</h2>
+
+        <p>Jugadores</p>
+
+    </div>
+
+    <div class="card-home">
+
+        <h2>{{ total_jornadas }}</h2>
+
+        <p>Jornadas</p>
+
+    </div>
+
+    <div class="card-home">
+
+        <h2>{{ total_partidos }}</h2>
+
+        <p>Partidos</p>
+
+    </div>
+
+</section>
+
+{% if proximo_partido %}
+
+<section class="seccion-proximo-partido">
+
+    <h2 class="titulo-proximo-partido">
+        ⚽ Próximo partido
+    </h2>
+
+    <div class="tarjeta-proximo-partido">
+
+        <div class="equipo-partido">
+
+            {% if proximo_partido.equipo_local.escudo %}
+
+                <img
+                    src="{{ proximo_partido.equipo_local.escudo.url }}"
+                    alt="Escudo de {{ proximo_partido.equipo_local.nombre }}"
+                >
+
+            {% endif %}
+
+            <h3>
+                {{ proximo_partido.equipo_local.nombre }}
+            </h3>
+
+        </div>
+
+
+        <div class="versus">
+            VS
+        </div>
+
+
+        <div class="equipo-partido">
+
+            {% if proximo_partido.equipo_visitante.escudo %}
+
+                <img
+                    src="{{ proximo_partido.equipo_visitante.escudo.url }}"
+                    alt="Escudo de {{ proximo_partido.equipo_visitante.nombre }}"
+                >
+
+            {% endif %}
+
+            <h3>
+                {{ proximo_partido.equipo_visitante.nombre }}
+            </h3>
+
+        </div>
+
+
+        <div class="datos-proximo-partido">
+
+            <p>
+                📅 {{ proximo_partido.fecha|date:"d/m/Y" }}
+            </p>
+
+            <p>
+                🕙 {{ proximo_partido.hora|time:"H:i" }}
+            </p>
+
+            <p>
+                🏟️
+                {% if proximo_partido.cancha %}
+                    {{ proximo_partido.cancha }}
+                {% else %}
+                    Cancha por confirmar
+                {% endif %}
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% else %}
+
+<section class="seccion-proximo-partido">
+
+    <div class="sin-partidos">
+        <h2>⚽ Próximo partido</h2>
+        <p>No hay partidos programados actualmente.</p>
+    </div>
+
+</section>
+
+{% endif %}
+
+<section class="informacion">
+
+
+    <div class="tarjeta">
+
+        <h3>
+            ⚽ Equipos
+        </h3>
+
+        <p>
+            Los mejores equipos escolares
+            compitiendo por el campeonato.
+        </p>
+
+    </div>
+
+
+
+
+    <div class="tarjeta">
+
+        <h3>
+            🏆 Torneo
+        </h3>
+
+        <p>
+            15 jornadas de fase regular
+            y una fase final con cuartos,
+            semifinales y final.
+        </p>
+
+    </div>
+
+
+
+
+
+    <div class="tarjeta">
+
+        <h3>
+            📊 Estadísticas
+        </h3>
+
+        <p>
+            Tabla general, goleadores,
+            tarjetas y resultados.
+        </p>
+
+    </div>
+
+
+
+</section>
+
+
+
+{% endblock %}

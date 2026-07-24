@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Jornadas
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/torneo.css' %}">
+{% endblock %}
+
+{% block contenido %}
+
+<section class="titulo-pagina">
+
+    <h2>Calendario del Torneo</h2>
+
+    <p>Liga Escolar de Fútbol</p>
+
+</section>
+
+
+{% for jornada in jornadas %}
+
+<section class="jornada">
+
+    <div class="encabezado-jornada">
+
+        <h2>
+            {{ jornada.get_fase_display }}
+        </h2>
+
+        {% if jornada.numero %}
+            <h3>
+                Jornada {{ jornada.numero }}
+            </h3>
+        {% endif %}
+
+        <p class="fecha-jornada">
+            Fecha de inicio:
+            {{ jornada.fecha_inicio }}
+        </p>
+
+    </div>
+
+
+    <div class="partidos">
+
+        {% for partido in jornada.partidos.all %}
+
+            <article class="partido-card">
+
+                <div class="equipos">
+
+                    <span class="nombre-equipo">
+                        {{ partido.equipo_local }}
+                    </span>
+
+                    <strong class="versus">
+                        VS
+                    </strong>
+
+                    <span class="nombre-equipo">
+                        {{ partido.equipo_visitante }}
+                    </span>
+
+                </div>
+
+
+                <div class="datos-partido">
+
+                    <p>
+                        📅
+                        <span>{{ partido.fecha }}</span>
+                    </p>
+
+                    <p>
+                        ⏰
+                        <span>{{ partido.hora }}</span>
+                    </p>
+
+                    <p>
+                        🏟️
+                        <span>{{ partido.cancha }}</span>
+                    </p>
+
+                </div>
+
+
+                <div class="estado-partido">
+
+                    {% if partido.terminado %}
+
+                        <p class="finalizado">
+                            ✅ Partido finalizado
+                        </p>
+
+                        <a
+                            href="{% url 'detalle_partido' partido.id %}"
+                            class="boton-detalles-partido"
+                        >
+                            Ver detalles
+                        </a>
+
+                    {% else %}
+
+                        <p class="pendiente">
+                            🟢 Próximo partido
+                        </p>
+
+                    {% endif %}
+
+                </div>
+
+            </article>
+
+        {% empty %}
+
+            <p class="mensaje-vacio">
+                Aún no hay partidos registrados para esta jornada.
+            </p>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% empty %}
+
+<p class="mensaje-vacio">
+    No hay jornadas creadas.
+</p>
+
+{% endfor %}
+
+{% endblock %}

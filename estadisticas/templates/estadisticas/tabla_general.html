@@ -1,0 +1,228 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block title %}
+
+Tabla general - Liga Escolar de Fútbol
+
+{% endblock %}
+
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'css/estadisticass.css' %}">
+
+{% endblock %}
+
+
+{% block contenido %}
+
+
+<section class="seccion-tabla-general">
+
+    <div class="encabezado-tabla">
+
+        <h1>
+            🏆 Tabla general
+        </h1>
+
+        <p>
+            Clasificación actual de la Liga Escolar de Fútbol
+        </p>
+
+    </div>
+
+
+    <div class="contenedor-tabla">
+
+        <table class="tabla-general">
+
+            <thead>
+
+                <tr>
+
+                    <th>Pos.</th>
+
+                    <th>Equipo</th>
+
+                    <th title="Partidos jugados">PJ</th>
+
+                    <th title="Partidos ganados">PG</th>
+
+                    <th title="Partidos empatados">PE</th>
+
+                    <th title="Partidos perdidos">PP</th>
+
+                    <th title="Goles a favor">GF</th>
+
+                    <th title="Goles en contra">GC</th>
+
+                    <th title="Diferencia de goles">DG</th>
+
+                    <th title="Puntos">PTS</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for fila in tabla %}
+
+                    <tr>
+
+                        <td class="posicion">
+
+                            {% if forloop.counter == 1 %}
+
+                                🥇
+
+                            {% elif forloop.counter == 2 %}
+
+                                🥈
+
+                            {% elif forloop.counter == 3 %}
+
+                                🥉
+
+                            {% else %}
+
+                                {{ forloop.counter }}
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <td class="equipo-tabla">
+
+                            {% if fila.equipo.escudo %}
+                                <img
+                                    src="{{ fila.equipo.escudo.url }}"
+                                    alt="Escudo de {{ fila.equipo.nombre }}"
+                                    class="escudo-tabla-general"
+                                >
+                            {% else %}
+                                <img
+                                    src="{% static 'img/escudo_default.png' %}"
+                                    alt="Escudo por defecto"
+                                    class="escudo-tabla-general"
+                                >
+                            {% endif %}
+
+                            <span>
+                                {{ fila.equipo.nombre }}
+                            </span>
+
+                        </td>
+
+
+                        <td>
+                            {{ fila.pj }}
+                        </td>
+
+                        <td>
+                            {{ fila.pg }}
+                        </td>
+
+                        <td>
+                            {{ fila.pe }}
+                        </td>
+
+                        <td>
+                            {{ fila.pp }}
+                        </td>
+
+                        <td>
+                            {{ fila.gf }}
+                        </td>
+
+                        <td>
+                            {{ fila.gc }}
+                        </td>
+
+                        <td>
+
+                            {% if fila.dg > 0 %}
+
+                                +{{ fila.dg }}
+
+                            {% else %}
+
+                                {{ fila.dg }}
+
+                            {% endif %}
+
+                        </td>
+
+                        <td class="puntos">
+                            {{ fila.puntos }}
+                        </td>
+
+                    </tr>
+
+
+                {% empty %}
+
+                    <tr>
+
+                        <td colspan="10" class="sin-equipos">
+
+                            No hay equipos registrados actualmente.
+
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <div class="leyenda-tabla">
+
+        <p>
+            <strong>PJ:</strong> Partidos jugados
+        </p>
+
+        <p>
+            <strong>PG:</strong> Partidos ganados
+        </p>
+
+        <p>
+            <strong>PE:</strong> Partidos empatados
+        </p>
+
+        <p>
+            <strong>PP:</strong> Partidos perdidos
+        </p>
+
+        <p>
+            <strong>GF:</strong> Goles a favor
+        </p>
+
+        <p>
+            <strong>GC:</strong> Goles en contra
+        </p>
+
+        <p>
+            <strong>DG:</strong> Diferencia de goles
+        </p>
+
+        <p>
+            <strong>PTS:</strong> Puntos
+        </p>
+
+    </div>
+
+</section>
+
+
+{% endblock %}

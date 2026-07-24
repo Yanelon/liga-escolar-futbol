@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Estadísticas - Liga Escolar de Fútbol
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/estadisticass.css' %}">
+{% endblock %}
+
+{% block contenido %}
+
+<section class="panel-estadisticas">
+
+    <div class="encabezado-panel-estadisticas">
+
+        <span class="etiqueta-estadisticas">
+            Centro de información
+        </span>
+
+        <h1>
+            Estadísticas del torneo
+        </h1>
+
+        <p>
+            Consulta la clasificación, los máximos goleadores
+            y el registro disciplinario de la liga.
+        </p>
+
+    </div>
+
+    <div class="contenedor-opciones-estadisticas">
+
+        <a
+            href="{% url 'tabla_general' %}"
+            class="tarjeta-opcion-estadisticas"
+        >
+
+            <div class="icono-opcion-estadisticas">
+                🏆
+            </div>
+
+            <div class="contenido-opcion-estadisticas">
+
+                <h2>
+                    Tabla general
+                </h2>
+
+                <p>
+                    Consulta las posiciones, puntos, partidos jugados,
+                    victorias, empates, derrotas y diferencia de goles.
+                </p>
+
+                <span class="boton-opcion-estadisticas">
+                    Ver clasificación →
+                </span>
+
+            </div>
+
+        </a>
+
+        <a
+            href="{% url 'tabla_goleadores' %}"
+            class="tarjeta-opcion-estadisticas"
+        >
+
+            <div class="icono-opcion-estadisticas">
+                ⚽
+            </div>
+
+            <div class="contenido-opcion-estadisticas">
+
+                <h2>
+                    Tabla de goleadores
+                </h2>
+
+                <p>
+                    Descubre quiénes son los jugadores con más goles
+                    registrados durante el torneo.
+                </p>
+
+                <span class="boton-opcion-estadisticas">
+                    Ver goleadores →
+                </span>
+
+            </div>
+
+        </a>
+
+        <a
+            href="{% url 'tabla_disciplinaria' %}"
+            class="tarjeta-opcion-estadisticas"
+        >
+
+            <div class="icono-opcion-estadisticas">
+                🟨
+            </div>
+
+            <div class="contenido-opcion-estadisticas">
+
+                <h2>
+                    Tabla disciplinaria
+                </h2>
+
+                <p>
+                    Revisa las tarjetas amarillas y rojas recibidas
+                    por cada jugador.
+                </p>
+
+                <span class="boton-opcion-estadisticas">
+                    Ver disciplina →
+                </span>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

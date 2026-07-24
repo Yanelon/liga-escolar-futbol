@@ -1,0 +1,1169 @@
+/* ==========================
+      TABLA GENERAL
+========================== */
+
+.seccion-tabla-general {
+    min-height: 70vh;
+    padding: 50px 30px;
+    background: #070b0a;
+}
+
+.seccion-tabla-general *,
+.seccion-tabla-general *::before,
+.seccion-tabla-general *::after {
+    box-sizing: border-box;
+}
+
+
+/* ENCABEZADO */
+
+.encabezado-tabla {
+    max-width: 900px;
+    margin: 0 auto 35px;
+    text-align: center;
+}
+
+.encabezado-tabla h1 {
+    margin: 0 0 12px;
+
+    color: #facc15;
+    font-size: 38px;
+    text-transform: uppercase;
+}
+
+.encabezado-tabla p {
+    margin: 0;
+
+    color: #cbd5e1;
+    font-size: 18px;
+}
+
+
+/* CONTENEDOR */
+
+.contenedor-tabla {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+
+    overflow-x: auto;
+
+    background: #0f172a;
+
+    border: 2px solid #16a34a;
+    border-radius: 16px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.35);
+
+    scrollbar-width: thin;
+    scrollbar-color: #22c55e #111827;
+}
+
+.contenedor-tabla::-webkit-scrollbar {
+    height: 8px;
+}
+
+.contenedor-tabla::-webkit-scrollbar-track {
+    background: #111827;
+}
+
+.contenedor-tabla::-webkit-scrollbar-thumb {
+    background: #22c55e;
+    border-radius: 10px;
+}
+
+
+/* TABLA */
+
+.tabla-general {
+    width: 100%;
+    min-width: 900px;
+
+    border-collapse: collapse;
+
+    background: #0f172a;
+}
+
+.tabla-general thead {
+    background: #15803d;
+}
+
+.tabla-general th {
+    padding: 16px 13px;
+
+    color: #ffffff;
+    font-size: 15px;
+    text-align: center;
+    text-transform: uppercase;
+
+    white-space: nowrap;
+}
+
+.tabla-general td {
+    padding: 15px 13px;
+
+    color: #e5e7eb;
+    text-align: center;
+
+    border-bottom: 1px solid #334155;
+}
+
+.tabla-general tbody tr {
+    transition: background 0.2s ease;
+}
+
+.tabla-general tbody tr:hover {
+    background: #162033;
+}
+
+.tabla-general tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* POSICIÓN */
+
+.posicion {
+    width: 75px;
+
+    color: #facc15 !important;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* EQUIPO */
+
+.equipo-tabla {
+    min-width: 210px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    text-align: left !important;
+}
+
+.equipo-tabla span {
+    color: #ffffff;
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+.escudo-tabla-general {
+    width: 42px;
+    height: 42px;
+
+    min-width: 42px;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+
+/* PUNTOS */
+
+.puntos {
+    color: #facc15 !important;
+    font-size: 19px;
+    font-weight: bold;
+
+    background: rgba(250, 204, 21, 0.06);
+}
+
+
+/* MENSAJE VACÍO */
+
+.sin-equipos {
+    padding: 40px !important;
+
+    color: #cbd5e1 !important;
+    font-size: 17px;
+    text-align: center !important;
+}
+
+
+/* LEYENDA */
+
+.leyenda-tabla {
+    max-width: 1150px;
+    margin: 25px auto 0;
+    padding: 20px;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 25px;
+
+    background: #111827;
+
+    border: 1px solid #334155;
+    border-radius: 12px;
+}
+
+.leyenda-tabla p {
+    margin: 0;
+
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+.leyenda-tabla strong {
+    color: #22c55e;
+}
+
+
+/* ==========================
+          TABLET
+========================== */
+
+@media screen and (max-width: 800px) {
+
+    .seccion-tabla-general {
+        padding: 40px 18px;
+    }
+
+    .encabezado-tabla h1 {
+        font-size: 31px;
+    }
+
+    .encabezado-tabla p {
+        font-size: 16px;
+    }
+
+    .contenedor-tabla {
+        border-radius: 12px;
+    }
+
+    .tabla-general th,
+    .tabla-general td {
+        padding: 13px 11px;
+        font-size: 14px;
+    }
+
+    .equipo-tabla {
+        min-width: 190px;
+    }
+
+    .escudo-tabla-general {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+    }
+
+}
+
+
+/* ==========================
+          CELULAR
+========================== */
+
+@media screen and (max-width: 520px) {
+
+    .seccion-tabla-general {
+        padding: 30px 10px;
+    }
+
+    .encabezado-tabla {
+        margin-bottom: 25px;
+    }
+
+    .encabezado-tabla h1 {
+        font-size: 27px;
+        line-height: 1.2;
+    }
+
+    .encabezado-tabla p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .contenedor-tabla {
+        border-width: 1px;
+        border-radius: 10px;
+    }
+
+    .tabla-general {
+        min-width: 820px;
+    }
+
+    .tabla-general th,
+    .tabla-general td {
+        padding: 12px 9px;
+        font-size: 13px;
+    }
+
+    .posicion {
+        width: 60px;
+        font-size: 17px;
+    }
+
+    .equipo-tabla {
+        min-width: 170px;
+        gap: 9px;
+    }
+
+    .equipo-tabla span {
+        font-size: 13px;
+    }
+
+    .escudo-tabla-general {
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+    }
+
+    .puntos {
+        font-size: 16px;
+    }
+
+    .leyenda-tabla {
+        justify-content: flex-start;
+
+        margin-top: 18px;
+        padding: 16px 14px;
+
+        gap: 10px 18px;
+    }
+
+    .leyenda-tabla p {
+        width: calc(50% - 9px);
+        font-size: 12px;
+    }
+
+}
+
+/* ==========================
+   TABLA DE GOLEADORES
+========================== */
+
+.seccion-goleadores {
+    min-height: 70vh;
+    padding: 50px 30px;
+    background: #070b0a;
+}
+
+.seccion-goleadores *,
+.seccion-goleadores *::before,
+.seccion-goleadores *::after {
+    box-sizing: border-box;
+}
+
+
+/* ENCABEZADO */
+
+.encabezado-goleadores {
+    max-width: 900px;
+    margin: 0 auto 35px;
+    text-align: center;
+}
+
+.encabezado-goleadores h1 {
+    margin: 0 0 10px;
+
+    color: #facc15;
+    font-size: 38px;
+    line-height: 1.2;
+
+    text-transform: uppercase;
+}
+
+.encabezado-goleadores p {
+    margin: 0;
+
+    color: #d1d5db;
+    font-size: 18px;
+}
+
+
+/* CONTENEDOR */
+
+.contenedor-tabla-goleadores {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+
+    overflow-x: auto;
+
+    background: #0f172a;
+
+    border: 2px solid #16a34a;
+    border-radius: 16px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.35);
+
+    scrollbar-width: thin;
+    scrollbar-color: #22c55e #111827;
+}
+
+.contenedor-tabla-goleadores::-webkit-scrollbar {
+    height: 8px;
+}
+
+.contenedor-tabla-goleadores::-webkit-scrollbar-track {
+    background: #111827;
+}
+
+.contenedor-tabla-goleadores::-webkit-scrollbar-thumb {
+    background: #22c55e;
+    border-radius: 10px;
+}
+
+
+/* TABLA */
+
+.tabla-goleadores {
+    width: 100%;
+    min-width: 650px;
+
+    border-collapse: collapse;
+
+    background: #0f172a;
+}
+
+.tabla-goleadores thead {
+    background: #15803d;
+}
+
+.tabla-goleadores th {
+    padding: 18px 15px;
+
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.tabla-goleadores td {
+    padding: 17px 15px;
+
+    color: #e5e7eb;
+    text-align: center;
+
+    border-bottom: 1px solid #334155;
+}
+
+.tabla-goleadores tbody tr {
+    transition: background 0.2s ease;
+}
+
+.tabla-goleadores tbody tr:hover {
+    background: #162033;
+}
+
+.tabla-goleadores tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* COLUMNAS */
+
+.posicion-goleador {
+    width: 90px;
+
+    color: #facc15 !important;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nombre-goleador {
+    min-width: 180px;
+
+    color: #ffffff !important;
+    font-size: 18px;
+    font-weight: bold;
+
+    overflow-wrap: anywhere;
+}
+
+.equipo-goleador {
+    min-width: 170px;
+
+    color: #d1d5db !important;
+
+    overflow-wrap: anywhere;
+}
+
+.cantidad-goles {
+    width: 120px;
+
+    color: #facc15 !important;
+    font-size: 21px;
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+.sin-goleadores {
+    padding: 40px !important;
+
+    color: #cbd5e1 !important;
+    font-size: 18px;
+    text-align: center !important;
+}
+
+
+/* ==========================
+          TABLET
+========================== */
+
+@media screen and (max-width: 700px) {
+
+    .seccion-goleadores {
+        padding: 35px 15px;
+    }
+
+    .encabezado-goleadores {
+        margin-bottom: 28px;
+    }
+
+    .encabezado-goleadores h1 {
+        font-size: 29px;
+    }
+
+    .encabezado-goleadores p {
+        font-size: 16px;
+    }
+
+    .contenedor-tabla-goleadores {
+        border-radius: 12px;
+    }
+
+    .tabla-goleadores th,
+    .tabla-goleadores td {
+        padding: 14px 11px;
+        font-size: 14px;
+    }
+
+    .nombre-goleador {
+        font-size: 15px;
+    }
+
+    .cantidad-goles {
+        font-size: 18px;
+    }
+
+}
+
+
+/* ==========================
+          CELULAR
+========================== */
+
+@media screen and (max-width: 520px) {
+
+    .seccion-goleadores {
+        padding: 30px 10px;
+    }
+
+    .encabezado-goleadores h1 {
+        font-size: 25px;
+    }
+
+    .encabezado-goleadores p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .contenedor-tabla-goleadores {
+        border-width: 1px;
+        border-radius: 10px;
+    }
+
+    .tabla-goleadores {
+        min-width: 590px;
+    }
+
+    .tabla-goleadores th,
+    .tabla-goleadores td {
+        padding: 12px 9px;
+        font-size: 13px;
+    }
+
+    .posicion-goleador {
+        width: 65px;
+        font-size: 18px;
+    }
+
+    .nombre-goleador {
+        min-width: 155px;
+        font-size: 14px;
+    }
+
+    .equipo-goleador {
+        min-width: 145px;
+    }
+
+    .cantidad-goles {
+        width: 95px;
+        font-size: 16px;
+    }
+
+}
+
+/* ==========================
+   TABLA DISCIPLINARIA
+========================== */
+
+.seccion-disciplina {
+    min-height: 70vh;
+    padding: 50px 30px;
+    background: #070b0a;
+}
+
+.seccion-disciplina *,
+.seccion-disciplina *::before,
+.seccion-disciplina *::after {
+    box-sizing: border-box;
+}
+
+
+/* ENCABEZADO */
+
+.encabezado-disciplina {
+    max-width: 900px;
+    margin: 0 auto 35px;
+    text-align: center;
+}
+
+.encabezado-disciplina h1 {
+    margin: 0 0 10px;
+
+    color: #facc15;
+    font-size: 38px;
+    line-height: 1.2;
+
+    text-transform: uppercase;
+}
+
+.encabezado-disciplina p {
+    margin: 0;
+
+    color: #d1d5db;
+    font-size: 18px;
+}
+
+
+/* CONTENEDOR */
+
+.contenedor-tabla-disciplina {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+
+    overflow-x: auto;
+
+    background: #0f172a;
+
+    border: 2px solid #16a34a;
+    border-radius: 16px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.35);
+
+    scrollbar-width: thin;
+    scrollbar-color: #22c55e #111827;
+}
+
+.contenedor-tabla-disciplina::-webkit-scrollbar {
+    height: 8px;
+}
+
+.contenedor-tabla-disciplina::-webkit-scrollbar-track {
+    background: #111827;
+}
+
+.contenedor-tabla-disciplina::-webkit-scrollbar-thumb {
+    background: #22c55e;
+    border-radius: 10px;
+}
+
+
+/* TABLA */
+
+.tabla-disciplina {
+    width: 100%;
+    min-width: 720px;
+
+    border-collapse: collapse;
+
+    background: #0f172a;
+}
+
+.tabla-disciplina thead {
+    background: #15803d;
+}
+
+.tabla-disciplina th {
+    padding: 18px 15px;
+
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.tabla-disciplina td {
+    padding: 17px 15px;
+
+    color: #e5e7eb;
+    text-align: center;
+
+    border-bottom: 1px solid #334155;
+}
+
+.tabla-disciplina tbody tr {
+    transition: background 0.2s ease;
+}
+
+.tabla-disciplina tbody tr:hover {
+    background: #162033;
+}
+
+.tabla-disciplina tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* COLUMNAS */
+
+.posicion-disciplina {
+    width: 80px;
+
+    color: #facc15 !important;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.jugador-disciplina {
+    min-width: 180px;
+
+    color: #ffffff !important;
+    font-size: 18px;
+    font-weight: bold;
+
+    overflow-wrap: anywhere;
+}
+
+.equipo-disciplina {
+    min-width: 170px;
+
+    color: #d1d5db !important;
+
+    overflow-wrap: anywhere;
+}
+
+.tarjetas-amarillas {
+    min-width: 120px;
+
+    color: #facc15 !important;
+    font-size: 20px;
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+.tarjetas-rojas {
+    min-width: 100px;
+
+    color: #ef4444 !important;
+    font-size: 20px;
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+.sin-tarjetas {
+    padding: 40px !important;
+
+    color: #cbd5e1 !important;
+    font-size: 18px;
+    text-align: center !important;
+}
+
+
+/* ==========================
+          TABLET
+========================== */
+
+@media screen and (max-width: 700px) {
+
+    .seccion-disciplina {
+        padding: 35px 15px;
+    }
+
+    .encabezado-disciplina {
+        margin-bottom: 28px;
+    }
+
+    .encabezado-disciplina h1 {
+        font-size: 29px;
+    }
+
+    .encabezado-disciplina p {
+        font-size: 16px;
+    }
+
+    .contenedor-tabla-disciplina {
+        border-radius: 12px;
+    }
+
+    .tabla-disciplina th,
+    .tabla-disciplina td {
+        padding: 14px 10px;
+        font-size: 14px;
+    }
+
+    .jugador-disciplina {
+        font-size: 15px;
+    }
+
+    .tarjetas-amarillas,
+    .tarjetas-rojas {
+        font-size: 18px;
+    }
+
+}
+
+
+/* ==========================
+          CELULAR
+========================== */
+
+@media screen and (max-width: 520px) {
+
+    .seccion-disciplina {
+        padding: 30px 10px;
+    }
+
+    .encabezado-disciplina h1 {
+        font-size: 24px;
+    }
+
+    .encabezado-disciplina p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .contenedor-tabla-disciplina {
+        border-width: 1px;
+        border-radius: 10px;
+    }
+
+    .tabla-disciplina {
+        min-width: 650px;
+    }
+
+    .tabla-disciplina th,
+    .tabla-disciplina td {
+        padding: 12px 9px;
+        font-size: 13px;
+    }
+
+    .posicion-disciplina {
+        width: 60px;
+        font-size: 17px;
+    }
+
+    .jugador-disciplina {
+        min-width: 155px;
+        font-size: 14px;
+    }
+
+    .equipo-disciplina {
+        min-width: 145px;
+    }
+
+    .tarjetas-amarillas,
+    .tarjetas-rojas {
+        min-width: 95px;
+        font-size: 16px;
+    }
+
+}
+
+/* ==================================================
+            PANEL DE ESTADÍSTICAS
+================================================== */
+
+.panel-estadisticas{
+    min-height:70vh;
+    padding:60px 30px;
+    background:#070b0a;
+}
+
+.panel-estadisticas *,
+.panel-estadisticas *::before,
+.panel-estadisticas *::after{
+    box-sizing:border-box;
+}
+
+
+/*=====================================
+            ENCABEZADO
+=====================================*/
+
+.encabezado-panel-estadisticas{
+    max-width:900px;
+    margin:0 auto 50px;
+    text-align:center;
+}
+
+.etiqueta-estadisticas{
+    display:inline-block;
+
+    margin-bottom:18px;
+    padding:8px 18px;
+
+    background:#15803d;
+    color:#fff;
+
+    border-radius:30px;
+
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.encabezado-panel-estadisticas h1{
+    margin:0 0 18px;
+
+    color:#facc15;
+
+    font-size:42px;
+    line-height:1.2;
+    text-transform:uppercase;
+}
+
+.encabezado-panel-estadisticas p{
+    max-width:700px;
+    margin:0 auto;
+
+    color:#d1d5db;
+
+    font-size:18px;
+    line-height:1.7;
+}
+
+
+/*=====================================
+              TARJETAS
+=====================================*/
+
+.contenedor-opciones-estadisticas{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,minmax(0,1fr));
+
+    gap:28px;
+
+    max-width:1200px;
+    margin:0 auto;
+}
+
+.tarjeta-opcion-estadisticas{
+
+    display:flex;
+    flex-direction:column;
+
+    padding:28px;
+
+    text-decoration:none;
+
+    background:#111827;
+
+    border:2px solid #1f2937;
+    border-radius:18px;
+
+    transition:
+        transform .25s,
+        border-color .25s,
+        box-shadow .25s;
+}
+
+.tarjeta-opcion-estadisticas:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#22c55e;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.35);
+}
+
+
+/*=====================================
+               ICONO
+=====================================*/
+
+.icono-opcion-estadisticas{
+
+    width:80px;
+    height:80px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    margin-bottom:22px;
+
+    background:#15803d22;
+
+    border-radius:18px;
+
+    font-size:40px;
+}
+
+
+/*=====================================
+             CONTENIDO
+=====================================*/
+
+.contenido-opcion-estadisticas{
+    display:flex;
+    flex-direction:column;
+    flex:1;
+}
+
+.contenido-opcion-estadisticas h2{
+
+    margin:0 0 14px;
+
+    color:#ffffff;
+
+    font-size:24px;
+}
+
+.contenido-opcion-estadisticas p{
+
+    flex:1;
+
+    margin:0 0 24px;
+
+    color:#d1d5db;
+
+    font-size:16px;
+    line-height:1.7;
+}
+
+
+/*=====================================
+              BOTÓN
+=====================================*/
+
+.boton-opcion-estadisticas{
+
+    display:inline-flex;
+    align-items:center;
+
+    color:#22c55e;
+
+    font-size:16px;
+    font-weight:bold;
+
+    transition:
+        color .2s,
+        transform .2s;
+}
+
+.tarjeta-opcion-estadisticas:hover
+.boton-opcion-estadisticas{
+
+    color:#facc15;
+
+    transform:translateX(5px);
+}
+
+
+/*=================================================
+                RESPONSIVE TABLET
+==================================================*/
+
+@media screen and (max-width:950px){
+
+    .contenedor-opciones-estadisticas{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+}
+
+
+/*=================================================
+                RESPONSIVE CELULAR
+==================================================*/
+
+@media screen and (max-width:650px){
+
+    .panel-estadisticas{
+        padding:40px 15px;
+    }
+
+    .encabezado-panel-estadisticas{
+        margin-bottom:35px;
+    }
+
+    .etiqueta-estadisticas{
+        margin-bottom:12px;
+        padding:7px 15px;
+
+        font-size:12px;
+    }
+
+    .encabezado-panel-estadisticas h1{
+        font-size:30px;
+    }
+
+    .encabezado-panel-estadisticas p{
+        font-size:15px;
+        line-height:1.6;
+    }
+
+    .contenedor-opciones-estadisticas{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+    .tarjeta-opcion-estadisticas{
+        min-height:auto;
+        padding:22px;
+
+        border-radius:16px;
+    }
+
+    .icono-opcion-estadisticas{
+
+        width:68px;
+        height:68px;
+
+        margin-bottom:20px;
+
+        font-size:34px;
+
+        border-radius:15px;
+    }
+
+    .contenido-opcion-estadisticas h2{
+        font-size:21px;
+    }
+
+    .contenido-opcion-estadisticas p{
+        margin-bottom:22px;
+
+        font-size:15px;
+    }
+
+    .boton-opcion-estadisticas{
+        font-size:15px;
+    }
+
+}

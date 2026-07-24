@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+{{ jugador.nombre }} {{ jugador.apellidos }}
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/equipos.css' %}">
+{% endblock %}
+
+{% block contenido %}
+
+<section class="detalle-jugador">
+
+    <a href="{% url 'equipos:detalle' jugador.equipo.id %}">
+         ← Volver al equipo
+    </a>
+
+    <div class="tarjeta-jugador">
+
+        {% if jugador.foto %}
+      
+            <img
+                src="{{ jugador.foto.url }}"
+                class="foto-jugador"
+            >
+        {% else %}
+            <img
+                src="{% static 'img/jugador_default.png' %}"
+                class="foto-jugador"
+            >
+        {% endif %}
+
+        <h1>
+            {{ jugador.nombre }}
+            {{ jugador.apellidos }}
+        </h1>
+
+        <p>
+            <strong>Equipo:</strong>
+            {{ jugador.equipo.nombre }}
+        </p>
+
+        <p>
+            <strong>Posición:</strong>
+
+            {% if jugador.posicion %}
+                {{ jugador.posicion }}
+            {% else %}
+                No registrada
+            {% endif %}
+        </p>
+
+        <p>
+            <strong>Edad:</strong>
+
+            {% if jugador.edad %}
+                {{ jugador.edad }} años
+            {% else %}
+                No registrada
+            {% endif %}
+        </p>
+
+        <div class="estadisticas-jugador">
+
+            <div>
+                <span>⚽ {{ goles }}</span>
+                <small>Goles</small>
+            </div>
+
+            <div>
+                <span>🟨 {{ tarjetas_amarillas }}</span>
+                <small>Amarillas</small>
+            </div>
+
+           <div>
+                <span>🟥 {{ tarjetas_rojas }}</span>
+                <small>Rojas</small>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

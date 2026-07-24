@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Equipos
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/equipos.css' %}">
+{% endblock %}
+
+{% block contenido %}
+
+<section class="seccion-equipos">
+
+    <h1>Equipos</h1>
+
+    <div class="contenedor-equipos">
+
+        {% for equipo in equipos %}
+
+            <a
+                href="{% url 'equipos:detalle' equipo.id %}"
+                class="tarjeta-equipo"
+            >
+
+                {% if equipo.escudo %}
+                    <img
+                        src="{{ equipo.escudo.url }}"
+                        alt="{{ equipo.nombre }}"
+                        class="escudo-equipo"
+                    >
+                {% else %}
+                    <img
+                        src="{% static 'img/escudo_default.png' %}"
+                        alt="Escudo por defecto"
+                        class="escudo-equipo"
+                    >
+                {% endif %}
+
+                <h2>{{ equipo.nombre }}</h2>
+
+            </a>
+
+        {% empty %}
+
+            <p>No hay equipos registrados.</p>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

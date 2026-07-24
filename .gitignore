@@ -1,0 +1,31 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# SQLite
+db.sqlite3
+
+# Media (archivos subidos por usuarios)
+media/
+
+# Static files generados por collectstatic
+staticfiles/
+
+# Entornos virtuales
+venv/
+env/
+.venv/
+
+# Variables de entorno
+.env
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
