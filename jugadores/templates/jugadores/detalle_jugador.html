@@ -20,15 +20,16 @@
     <div class="tarjeta-jugador">
 
         {% if jugador.foto %}
-      
             <img
                 src="{{ jugador.foto.url }}"
                 class="foto-jugador"
+                alt="{{ jugador.nombre }}"
             >
         {% else %}
             <img
                 src="{% static 'img/jugador_default.png' %}"
                 class="foto-jugador"
+                alt="Jugador"
             >
         {% endif %}
 
