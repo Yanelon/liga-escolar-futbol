@@ -21,7 +21,7 @@ def detalle_jugador(request, jugador_id):
 
     return render(
         request,
-        "Jugadores/detalle_jugador.html",
+        "jugadores/detalle_jugador.html",
         {
             "jugador": jugador,
             "goles": goles,
